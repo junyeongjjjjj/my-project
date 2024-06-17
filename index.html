@@ -77,8 +77,18 @@
       }
 
       html,
-      body,
-      form {
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 10.5px;
+        line-height: 10.5px;
+        letter-spacing: -0.4px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+          sans-serif;
+      }
+      form,
+      ul {
         margin: 0;
         padding: 0;
       }
@@ -149,25 +159,25 @@
         position: relative;
       }
       #header-hamburger {
-        left: -10px;
+        left: -12px;
       }
       #header-hamburger > div {
         background-position: -326px -161px;
       }
       #header-pay {
-        left: 50px;
+        left: 41px;
       }
       #header-pay > div {
         background-position: -285px -41px;
       }
       #header-talk {
-        right: 90px;
+        right: 94px;
       }
       #header-talk > div {
         background-position: -285px -173px;
       }
       #header-notice {
-        right: 39px;
+        right: 42px;
       }
       #header-notice > div {
         background-position: -326px -227px;
@@ -209,6 +219,10 @@
             border-radius: 33px;
             text-align: left;
           }
+          #search > form:hover {
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+          }
+
           #search-svg {
             display: inline-flex;
             justify-self: center;
@@ -221,14 +235,15 @@
           #search-svg-svg {
             width: 24px;
             height: 24px;
-            margin-right: 20px;
+            margin-right: 15px;
             margin-left: 26px;
             margin-top: 17px;
+            cursor: pointer;
           }
           #search-input {
             width: 480px;
             padding: 17px 0;
-            font-size: 21px;
+            font-size: 2rem;
             line-height: 24px;
             font-weight: 500;
             letter-spacing: 0.4px;
@@ -327,8 +342,342 @@
             </div>
           </form>
         </div>
-        <div id="nav"></div>
-        <div id="main"></div>
+        <style>
+          #nav {
+            margin-top: 5px;
+          }
+          #nav > ul {
+            display: flex;
+            list-style-type: none;
+            justify-content: center;
+            font-size: 1.3rem;
+            line-height: 12px;
+          }
+          #nav a {
+            text-decoration: none;
+            text-align: center;
+          }
+          #nav a:visited {
+            color: black;
+          }
+          #nav a div {
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+            display: inline-flex;
+          }
+          #nav a div::after {
+            position: relative;
+            z-index: 1;
+            content: '';
+            display: inline-block;
+            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.712d35ae.png);
+            background-size: 442px 434px;
+            background-repeat: no-repeat;
+            width: 40px;
+            height: 40px;
+            margin: 2px;
+          }
+          #nav li {
+            width: 64px;
+            margin: 2px;
+          }
+          #nav a div::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -1px;
+            left: -3px;
+            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.712d35ae.png);
+            background-size: 442px 434px;
+            background-position: -193px 0px;
+            background-repeat: no-repeat;
+            width: 50px;
+            height: 50px;
+            z-index: -1;
+          }
+          #nav li:nth-of-type(1) a div::after {
+            background-position: -244px -41px;
+          }
+          #nav li:nth-of-type(2) a div::after {
+            background-position: -86px -184px;
+          }
+          #nav li:nth-of-type(3) a div::after {
+            background-position: -45px -184px;
+          }
+          #nav li:nth-of-type(4) a div::after {
+            background-position: -164px -229px;
+          }
+          #nav li:nth-of-type(5) a div::after {
+            background-position: -82px -229px;
+          }
+          #nav li:nth-of-type(6) a div::after {
+            background-position: -205px -229px;
+          }
+          #nav li:nth-of-type(7) a div::after {
+            background-position: -123px -229px;
+          }
+          #nav li:nth-of-type(8) a div::after {
+            background-position: -244px -82px;
+          }
+          #nav li:nth-of-type(9) a div::after {
+            background-position: -285px 0px;
+          }
+          #nav li:nth-of-type(10) a div::after {
+            background-image: none;
+            position: relative;
+            z-index: 1;
+            content: '';
+            display: inline-block;
+            background-repeat: no-repeat;
+            width: 40px;
+            height: 40px;
+            margin: 2px;
+          }
+          #nav li:nth-of-type(11) a div::after {
+            background-position: -41px -229px;
+          }
+          #nav li a span {
+            display: inline-block;
+            margin-top: 7px;
+          }
+        </style>
+        <div id="nav">
+          <ul>
+            <li>
+              <a href="">
+                <div></div>
+                <span>메일</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div></div>
+                <span>카페</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div></div>
+                <span>블로그</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div></div>
+                <span>쇼핑</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div></div>
+                <span>뉴스</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div></div>
+                <span>증권</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div></div>
+                <span>부동산</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div></div>
+                <span>지도</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div></div>
+                <span>웹툰</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div>
+                  <img
+                    src="https://s.pstatic.net/static/www/mobile/edit/20240112_1095/upload_1705057885416AaxUM.png"
+                    width="40"
+                    height="40"
+                    id="service_img"
+                    alt="치지직"
+                  />
+                </div>
+                <span>치지직</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div></div>
+                <span></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <style>
+          #main {
+            margin-top: 31px;
+            display: flex;
+          }
+          #main-left {
+            width: 830px;
+            margin-right: 30px;
+          }
+          #main-right {
+            width: 420px;
+          }
+          #main-left-ad,
+          #main-right-ad {
+            background: gray;
+            margin-bottom: 16px;
+          }
+          aside[id$='ad'] {
+            border-radius: 8px;
+          }
+          #main-left-ad {
+            height: 130px;
+          }
+          section[id^='main'] {
+            box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+            border-radius: 8px;
+            margin-bottom: 16px;
+          }
+          #main-newstand {
+            height: 426px;
+          }
+          #main-newstand a {
+            text-decoration: none;
+          }
+          #main-newstand a:hover {
+            text-decoration: underline;
+          }
+          #main-shopping {
+            height: 560px;
+          }
+          #main-login {
+            height: 164px;
+            padding: 21px 20px 18px;
+            font-size: 1.4rem;
+            display: flex;
+            flex-flow: column;
+          }
+          #main-login > div:first-of-type {
+            line-height: 20px;
+          }
+          #main-login-button {
+            margin-top: 13px;
+            padding: 17px 0;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            height: 56px;
+            border-radius: 4px;
+            background-color: #03c75a;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 16px;
+          }
+          #main-login-button i {
+            vertical-align: -1px;
+            background-image: url(./sp_main.png);
+            background-size: 442px 434px;
+            background-position: -142px -270px;
+            background-repeat: no-repeat;
+            width: 72px;
+            height: 14px;
+            display: inline-block;
+            margin: 3px 8px 0 0;
+          }
+          #main-login > div:last-of-type {
+            font-size: 1.3rem;
+            display: flex;
+            justify-content: center;
+          }
+          #main-login > div:last-of-type a {
+            text-decoration: none;
+            color: var(--color_caption2);
+            letter-spacing: -0.4px;
+          }
+          #main-login > div:last-of-type a:first-of-type,
+          #main-login > div:last-of-type a:last-of-type {
+            position: relative;
+            top: 5px;
+          }
+          #main-login > div:last-of-type a:hover {
+            text-decoration: underline;
+          }
+          #main-login > div:last-of-type > a:nth-of-type(2)::before,
+          #main-login > div:last-of-type > a:nth-of-type(2)::after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 12px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            margin: 4px 12px 0;
+          }
+          #main-right-ad {
+            height: 240px;
+          }
+          .main-weather-and-stock {
+            padding: 0 18px;
+          }
+          .main-weather-and-stock > header {
+            height: 52px;
+            padding: 6px 0;
+          }
+          .main-weather-and-stock > div {
+            border-top: 1px solid var(--color_border_in);
+          }
+          #main-weather {
+            height: 236px;
+          }
+          #main-stock {
+            height: 236px;
+          }
+        </style>
+        <main id="main">
+          <div id="main-left">
+            <aside id="main-left-ad"></aside>
+            <section id="main-newstand">
+              <header>
+                <a href="#">뉴스스탠드</a>
+                <a href="#">언론사편집</a>
+                <a href="#">엔터</a>
+                <a href="#">스포츠</a>
+                <a href="#">경제</a>
+                <a href="#">쇼핑투데이</a>
+              </header>
+              <div></div>
+              <footer></footer>
+            </section>
+            <section id="main-shopping"></section>
+          </div>
+          <div id="main-right">
+            <section id="main-login">
+              <div>네이버를 더 안전하고 편리하게 이용하세요</div>
+              <a href="#" id="main-login-button"><i></i>로그인</a>
+              <div>
+                <a href="#">아이디 찾기</a>
+                <a href="#">비밀번호 찾기</a>
+                <a href="#">회원가입</a>
+              </div>
+            </section>
+            <aside id="main-right-ad"></aside>
+            <section id="main-weather" class="weather-and-stock">
+              <header>날씨</header>
+              <div></div>
+            </section>
+            <section id="main-stock" class="weather-and-stock">
+              <header>증시</header>
+              <div></div>
+            </section>
+          </div>
+        </main>
       </div>
     </div>
   </body>
