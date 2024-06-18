@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico.ico" />
     <title>NAVER</title>
+    <link rel="stylesheet" href="style.css" />
     <style>
       * {
         box-sizing: border-box;
@@ -379,7 +380,7 @@
             margin: 2px;
           }
           #nav li {
-            width: 64px;
+            width: 57px;
             margin: 2px;
           }
           #nav a div::before {
@@ -425,14 +426,6 @@
           }
           #nav li:nth-of-type(10) a div::after {
             background-image: none;
-            position: relative;
-            z-index: 1;
-            content: '';
-            display: inline-block;
-            background-repeat: no-repeat;
-            width: 40px;
-            height: 40px;
-            margin: 2px;
           }
           #nav li:nth-of-type(11) a div::after {
             background-position: -41px -229px;
@@ -440,6 +433,9 @@
           #nav li a span {
             display: inline-block;
             margin-top: 7px;
+          }
+          #service_img {
+            margin: 2px;
           }
         </style>
         <div id="nav">
@@ -539,6 +535,7 @@
           }
           aside[id$='ad'] {
             border-radius: 8px;
+            box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0, 0, 0, 0.04);
           }
           #main-left-ad {
             height: 130px;
@@ -547,18 +544,6 @@
             box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0, 0, 0, 0.04);
             border-radius: 8px;
             margin-bottom: 16px;
-          }
-          #main-newstand {
-            height: 426px;
-          }
-          #main-newstand a {
-            text-decoration: none;
-          }
-          #main-newstand a:hover {
-            text-decoration: underline;
-          }
-          #main-shopping {
-            height: 560px;
           }
           #main-login {
             height: 164px;
@@ -623,6 +608,9 @@
           #main-right-ad {
             height: 240px;
           }
+          #main-right2-ad {
+            height: 80px;
+          }
           .main-weather-and-stock {
             padding: 0 18px;
           }
@@ -639,35 +627,741 @@
           #main-stock {
             height: 236px;
           }
+          #main-newstand {
+            height: 426px;
+            display: flex;
+            flex-flow: column;
+          }
+          #main-newstand-top,
+          #main-shopping-top {
+            flex: 1;
+            padding: 18px 20px;
+          }
+          #main-newstand-top .dot::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            margin: 9px 7px 0;
+            border-radius: 50%;
+            vertical-align: 5px;
+          }
+          .left-section .slash,
+          .left-section .dot {
+            color: rgba(8, 8, 8, 0.5);
+            font-weight: 800;
+          }
+          .left-section .slash {
+            position: relative;
+            padding-left: 26px;
+          }
+          .left-section .slash::before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 4px;
+            left: 13px;
+            width: 1px;
+            height: 15px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            transform: skewX(-15deg);
+          }
+          .left-section header {
+            font-size: 1.6rem;
+            color: rgba(8, 8, 8, 0.5);
+            display: flex;
+            justify-content: flex-start;
+            line-height: 23px;
+            margin-bottom: 17px;
+          }
+          .left-section header.bold {
+            font-weight: bold;
+            color: black;
+          }
+          #main-newstand-gray {
+            display: flex;
+            justify-self: flex-start;
+            height: 50px;
+            padding: 12px 20px;
+            background-color: var(--color_option_bg);
+            border-radius: 4px;
+            font-size: 1.4rem;
+            line-height: 26px;
+          }
+          #main-newstand-gray .left {
+            flex: 1;
+            display: flex;
+          }
+          #main-newstand-gray .left > a:first-of-type {
+            width: 85.5px;
+          }
+          #main-newstand-gray .left > a:first-of-type::after {
+            content: '';
+            background: url(./sp_main.png);
+            background-size: 442px 434px;
+            background-position: -153px -176px;
+            background-repeat: no-repeat;
+            width: 9px;
+            height: 6px;
+            display: inline-block;
+            margin: 10px 0 0 5px;
+            vertical-align: 3px;
+          }
+          #main-newstand-animation {
+            padding-left: 25px;
+            position: relative;
+            display: flex;
+          }
+          #main-newstand-animation ::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 7px;
+            left: 12px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            width: 1px;
+            height: 12px;
+          }
+          #main-newstand-animation a:first-of-type {
+            position: relative;
+            top: -1px;
+            line-height: 26px;
+          }
+          #main-newstand-animation a:first-of-type::after {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            margin: 12px 6px 0 6px;
+            border-radius: 50%;
+            vertical-align: 5px;
+          }
+
+          @keyframes newsAnimation {
+            0% {
+              transform: translateY(0);
+            }
+            16.666% {
+              transform: translateY(0);
+            }
+            33.333% {
+              transform: translateY(-26px);
+            }
+            50% {
+              transform: translateY(-26px);
+            }
+            66.666% {
+              transform: translateY(-52px);
+            }
+            83.333% {
+              transform: translateY(-52px);
+            }
+            91.66666% {
+              transform: translateY(-65px);
+            }
+            91.66667% {
+              transform: translateY(13px);
+            }
+            100% {
+              transform: translateY(0);
+            }
+          }
+          #main-newstand-animation-target {
+            width: 400px;
+            display: inline-block;
+            overflow: hidden;
+          }
+          #main-newstand-animation-target > div {
+            animation: newsAnimation 5s linear 3s infinite;
+          }
+          #main-newstand-gray .bold {
+            font-weight: bold;
+            padding-left: 25px;
+            position: relative;
+          }
+          #main-newstand-gray .right {
+            display: flex;
+          }
+          #main-newstand-gray .bold::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 7px;
+            left: 12px;
+            width: 1px;
+            height: 12px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+          }
+          .left-section a {
+            text-decoration: none;
+          }
+          .left-section a:visited {
+            color: inherit;
+          }
+          .left-section a:hover {
+            text-decoration: underline;
+          }
+          #main-newstand-grid {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 224px;
+            grid-gap: 1px;
+            background-color: var(--color_border_in);
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            width: 790px;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            border: 1px solid var(--color_border_in);
+            border-radius: 4px;
+            margin-top: 18px;
+          }
+          #main-newstand-grid > div {
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .left-section footer {
+            font-size: 13.65px;
+            padding: 10px 0 11px;
+            border-top: 1px solid var(--color_border_in);
+            line-height: 35px;
+            font-weight: 600;
+            color: #606060;
+            color: var(--color_caption2);
+            display: flex;
+            justify-content: center;
+            position: relative;
+          }
+          #main-newstand footer .list,
+          #main-newstand footer .grid {
+            position: absolute;
+            border: none;
+            cursor: pointer;
+            top: 0;
+            background-color: transparent;
+          }
+          #main-newstand footer .list {
+            right: 49px;
+            padding: 18px 9px 18px 20px;
+          }
+          #main-newstand footer .list::before {
+            content: '';
+            display: inline-block;
+            background: url(./sp_main.png);
+            background-size: 442px 434px;
+            background-position: -397px -354px;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+          }
+          #main-newstand footer .list:hover::before {
+            background-position: -397px -333px;
+          }
+          #main-newstand footer .grid {
+            right: 0;
+            padding: 18px 20px 18px 9px;
+          }
+          #main-newstand footer .grid::before {
+            content: '';
+            display: inline-block;
+            background: url(./sp_main.png);
+            background-size: 442px 434px;
+            background-position: -422px -231px;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+          }
+          .left-section footer .prev,
+          .left-section footer .next {
+            background: none;
+            border: none;
+            content: '';
+            width: 36px;
+            height: 36px;
+            border: 1px solid #dadcdf;
+            border: 1px solid var(--color_button_border);
+            background-color: #fff;
+            background-color: var(--color_button1_bg);
+            display: inline-block;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .left-section footer .prev::before {
+            transform: rotate(180deg);
+          }
+          .left-section .prev::before,
+          .left-section .next::before {
+            content: '';
+            display: block;
+            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.712d35ae.png);
+            background-size: 442px 434px;
+            background-position: -299px -422px;
+            background-repeat: no-repeat;
+            width: 10px;
+            height: 12px;
+          }
+          .left-section footer .text {
+            padding: 0 16px;
+            min-width: 156px;
+          }
+          .left-section footer .hot {
+            color: #9858f5;
+          }
+          .left-section footer .news {
+            color: var(--color_news);
+          }
+          .left-section footer .total {
+            color: rgba(96, 96, 96, 0.5);
+          }
+          #main-shopping {
+            height: 560px;
+            display: flex;
+            flex-flow: column;
+          }
+          #main-shopping-top {
+            padding-top: 19px;
+          }
+          #main-shopping footer .text {
+            min-width: 176px;
+          }
+          #main-shopping-gray {
+            display: flex;
+          }
+          #main-shopping-gray .left {
+            width: 668px;
+            height: 50px;
+            padding: 15px 20px 14px;
+            display: flex;
+            flex: 1;
+            background-color: var(--color_option_bg);
+          }
+          #main-shopping-gray .right {
+            margin-left: auto;
+            padding: 10px 0;
+          }
+          #main-shopping-grid {
+            margin-top: 18px;
+            display: grid;
+            grid-template-rows: 90px 95px 170px;
+            grid-template-columns: 1fr 1fr 1fr 1fr 250px;
+            column-gap: 20px;
+          }
+          #main-shopping-grid .item {
+            line-height: 20px;
+            letter-spacing: -0.8px;
+            font-size: 1.4rem;
+          }
+          #main-shopping-grid .item > .image {
+            width: 115px;
+            height: 115px;
+            border-radius: 4px;
+            background-color: gray;
+            margin-bottom: 10px;
+          }
+          #main-shopping-grid .item > .text {
+            text-align: left;
+          }
+          .item:nth-child(1),
+          .item:nth-child(2),
+          .item:nth-child(3),
+          .item:nth-child(4) {
+            grid-row: 1 / span 2;
+          }
+          .item:nth-child(5),
+          .item:nth-child(6),
+          .item:nth-child(11) > div:first-child {
+            padding: 10px 12px 5px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            background: rgba(245, 248, 251, 0.6);
+          }
+          .item:nth-child(6) {
+            margin: 11px 0;
+          }
+          .item:nth-child(11) > div:first-child {
+            height: 135px;
+            margin-bottom: 10px;
+          }
+          #main-left-webtoon {
+            height: 780px;
+          }
+          #main-tool {
+            height: 811px;
+            margin-top: 16px;
+          }
+          #main-right3-ad {
+            height: 80px;
+          }
         </style>
         <main id="main">
           <div id="main-left">
-            <aside id="main-left-ad"></aside>
-            <section id="main-newstand">
-              <header>
-                <a href="#">뉴스스탠드</a>
-                <a href="#">언론사편집</a>
-                <a href="#">엔터</a>
-                <a href="#">스포츠</a>
-                <a href="#">경제</a>
-                <a href="#">쇼핑투데이</a>
-              </header>
-              <div></div>
-              <footer></footer>
+            <aside id="main-left-ad">
+              <img
+                src="https://ssl.pstatic.net/melona/libs/1500/1500995/fdb8882f6616489b9fd0_20240618164747374.jpg"
+                width="830"
+                height="130"
+                alt="[광고]에어컨 꺼도 밤새 시원해 까는 이불 다 버렸어 누잠 새벽 특가"
+              />
+            </aside>
+            <section id="main-newstand" class="left-section">
+              <div id="main-newstand-top">
+                <header>
+                  <a href="#" class="bold">뉴스스탠드</a>
+                  <a href="#" class="dot">언론사편집</a>
+                  <a href="#" class="slash">엔터</a>
+                  <a href="#" class="slash">스포츠</a>
+                  <a href="#" class="slash">경제</a>
+                  <a href="#" class="slash">쇼핑투데이</a>
+                </header>
+                <div id="main-newstand-gray">
+                  <div class="left">
+                    <a href="#">전체언론사</a>
+                    <div id="main-newstand-animation">
+                      <a href="#">연합뉴스</a>
+                      <div id="main-newstand-animation-target">
+                        <div>
+                          <a href="#"
+                            >"나 오늘 종강이야" 자체휴강 하려던 20대男
+                            강의실에서 발견</a
+                          >
+                          <a href="#"
+                            >"나 오늘 종강이야" 자체휴강 하려던 20대男
+                            강의실에서 발견</a
+                          >
+                          <a href="#"
+                            >"나 오늘 종강이야" 자체휴강 하려던 20대男
+                            강의실에서 발견</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="right">
+                    <a href="#">뉴스스탠드</a>
+                    <a href="#" class="bold">뉴스홈</a>
+                  </div>
+                </div>
+
+                <div id="main-newstand-grid">
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/330.png"
+                      height="20"
+                      alt="중앙데일리"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/376.png"
+                      height="20"
+                      alt="지지통신"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/079.png"
+                      height="20"
+                      alt="노컷뉴스"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/117.png"
+                      height="20"
+                      alt="마이데일리"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/032.png"
+                      height="20"
+                      alt="경향신문"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/366.png"
+                      height="20"
+                      alt="조선비즈"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/008.png"
+                      height="20"
+                      alt="머니투데이"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/215.png"
+                      height="20"
+                      alt="한국경제TV"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/up/2024/0124/nsd95528325.png"
+                      height="20"
+                      alt="뉴데일리"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/018.png"
+                      height="20"
+                      alt="이데일리"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2019/logo/011.png"
+                      height="20"
+                      alt="서울경제"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/022.png"
+                      height="20"
+                      alt="세계일보"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/139.png"
+                      height="20"
+                      alt="스포탈코리아"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/031.png"
+                      height="20"
+                      alt="아이뉴스24"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/020.png"
+                      height="20"
+                      alt="동아일보"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/331.png"
+                      height="20"
+                      alt="충청투데이"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/up/2021/1130/nsd10159718.png"
+                      height="20"
+                      alt="스포티비뉴스"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/up/2022/0328/nsd223244325.png"
+                      height="20"
+                      alt="스포츠투데이"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/825.png"
+                      height="20"
+                      alt="이로운넷"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/963.png"
+                      height="20"
+                      alt="에너지경제"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/908.png"
+                      height="20"
+                      alt="국방일보"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/802.png"
+                      height="20"
+                      alt="스포츠Q"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/up/2022/1024/nsd174430433.png"
+                      height="20"
+                      alt="서울와이어"
+                      class="news_logo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://s.pstatic.net/static/newsstand/up/2022/0328/nsd22503109.png"
+                      height="20"
+                      alt="뉴스앤조이"
+                      class="news_logo"
+                    />
+                  </div>
+                </div>
+              </div>
+              <footer>
+                <button class="prev"></button>
+                <div class="text">
+                  <span class="news">언론사</span>&nbsp;더보기 1<span
+                    class="total"
+                    >/4</span
+                  >
+                </div>
+                <button class="next"></button>
+                <button class="list"></button>
+                <button class="grid"></button>
+              </footer>
             </section>
-            <section id="main-shopping"></section>
+            <section id="main-shopping" class="left-section">
+              <div id="main-shopping-top">
+                <header>
+                  <a href="#" class="bold">쇼핑</a>
+                  <a href="#" class="slash">맨즈</a>
+                  <a href="#" class="slash">원쁠딜</a>
+                  <a href="#" class="slash">쇼핑라이브</a>
+                  <div class="right">
+                    <span>1</span>
+                    <span>/13</span>
+                    <button class="prev"></button>
+                    <button class="next"></button>
+                  </div>
+                </header>
+
+                <div id="main-shopping-grid">
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">독보적인 퀄리티 우린품격을입어요</div>
+                  </div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">독보적인 퀄리티 우린품격을입어요</div>
+                  </div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">독보적인 퀄리티 우린품격을입어요</div>
+                  </div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">독보적인 퀄리티 우린품격을입어요</div>
+                  </div>
+                  <div class="item">5</div>
+                  <div class="item">6</div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">독보적인 퀄리티 우린품격을입어요</div>
+                  </div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">독보적인 퀄리티 우린품격을입어요</div>
+                  </div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">독보적인 퀄리티 우린품격을입어요</div>
+                  </div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">독보적인 퀄리티 우린품격을입어요</div>
+                  </div>
+                  <div class="item">
+                    <div></div>
+                    <div>아웃렛 쇼핑 득템찬스! 시즌오프SALE</div>
+                  </div>
+                </div>
+                <div id="main-shopping-gray">
+                  <div class="left">
+                    <a href="#">오늘의 혜택</a>
+                    <div class="dot">
+                      <a href="#">와우</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer>
+                <button class="prev"></button>
+                <div class="text">
+                  <span class="hot">쇼핑아이템</span>&nbsp;더보기&nbsp;1<span
+                    class="total"
+                    >/13</span
+                  >
+                </div>
+                <button class="next"></button>
+              </footer>
+            </section>
+            <section id="main-left-webtoon"></section>
           </div>
           <div id="main-right">
             <section id="main-login">
               <div>네이버를 더 안전하고 편리하게 이용하세요</div>
-              <a href="#" id="main-login-button"><i></i>로그인</a>
+              <a
+                href="https://nid.naver.com/nidlogin.login?mode=form&url=https://www.naver.com/"
+                id="main-login-button"
+                ><i></i>로그인</a
+              >
               <div>
                 <a href="#">아이디 찾기</a>
                 <a href="#">비밀번호 찾기</a>
                 <a href="#">회원가입</a>
               </div>
             </section>
-            <aside id="main-right-ad"></aside>
+            <aside id="main-right-ad">
+              <img
+                src="https://ssl.pstatic.net/melona/libs/1500/1500276/bb3030be6d957a4fecf6_20240618112028482.jpg"
+                width="420"
+                height="240"
+                alt=""
+              />
+            </aside>
             <section id="main-weather" class="weather-and-stock">
               <header>날씨</header>
               <div></div>
@@ -676,9 +1370,188 @@
               <header>증시</header>
               <div></div>
             </section>
+            <aside id="main-right2-ad">
+              <img
+                src="https://s.pstatic.net/static/www/mobile/edit/20240617_1095/upload_1718618478021U0fYD.png"
+                width="420"
+                height="80"
+                alt="초대규모 클립 크리에이터모집 총25억 초슈퍼급 펀딩"
+              />
+            </aside>
+            <section id="main-tool"></section>
+            <aside id="main-right3-ad"></aside>
           </div>
         </main>
       </div>
     </div>
+
+    <footer class="footer">
+      <div class="footer_inner">
+        <section class="fbanner-area">
+          <ul class="fbanner-box">
+            <li>
+              <a href="#">
+                <div class="main-public-image">
+                  <img
+                    class="thumb_img"
+                    src="https://ssl.pstatic.net/melona/libs/1492/1492667/f6dc88724875c0ceda83_20240613162009231.jpg"
+                    width="160"
+                    height="100"
+                    alt="광고 이미지"
+                  />
+                  <i class="icon-nad" aria-label="광고"></i>
+                </div>
+                <div class="main-public-content">
+                  <strong class="main-public-subtitle">굿네이버스</strong>
+                  <strong class="main-public-title">기부반지 유어턴 링</strong>
+                  <div class="main-public-desc">이젠, 당신 차례!</div>
+                  <div class="main-public-desc2">
+                    당신의 선한 영향력을 보여주세요
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="main-public-image">
+                  <img
+                    class="thumb_img"
+                    src="https://ssl.pstatic.net/melona/libs/1500/1500194/e9beb5db6069d09f95f9_20240607101605420_1.jpg"
+                    width="160"
+                    height="100"
+                    alt="광고 이미지"
+                  />
+                  <i class="icon-nad" aria-label="광고"></i>
+                </div>
+                <div class="main-public-content">
+                  <strong class="main-public-subtitle">해양수산부</strong>
+                  <strong class="main-public-title"
+                    >제1회 선원의 날 기념 행사</strong
+                  >
+                  <div class="main-public-desc">2024.6.21.(금)</div>
+                  <div class="main-public-desc2">한국해양대학교 대강당</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="main-public-image">
+                  <img
+                    class="thumb_img"
+                    src="https://ssl.pstatic.net/melona/libs/1500/1500986/a98156915647c6c2a994_20240614133706704.jpg"
+                    width="160"
+                    height="100"
+                    alt="광고 이미지"
+                  />
+                  <i class="icon-nad" aria-label="광고"></i>
+                </div>
+                <div class="main-public-content">
+                  <strong class="main-public-subtitle">네이버 쇼핑</strong>
+                  <strong class="main-public-title">패브릭 홀릭 위크</strong>
+                  <div class="main-public-desc">신상부터 베스트셀러까지</div>
+                  <div class="main-public-desc2">
+                    미리 준비하는 여름이불 페스타
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="notice-area">
+          <div class="notice-box">
+            <h3 class="title">
+              <a href="#">공지사항</a>
+            </h3>
+          </div>
+          <a href="#" class="link-all">서비스 전체보기</a>
+        </section>
+        <section class="aside-area">
+          <div class="partner-box-wrap">
+            <div class="partner-box">
+              <h3 class="title">Partners</h3>
+              <a href="#" class="link-partner">프로젝트 꽃</a>
+              <a href="#" class="link-partner">네이버 비즈니스</a>
+              <a href="#" class="link-partner">네이버 비즈니스 스쿨</a>
+              <a href="#" class="link-partner">네이버 광고</a>
+              <a href="#" class="link-partner">스토어 개설</a>
+              <a href="#" class="link-partner">지역업체 등록</a>
+              <a href="#" class="link-partner">엑스퍼트 등록</a>
+            </div>
+            <div class="partner-box">
+              <h3 class="title">Developers</h3>
+              <a href="#" class="link-partner">네이버 개발자 센터</a>
+              <a href="#" class="link-partner">오픈 API</a>
+              <a href="#" class="link-partner">오픈소스</a>
+              <a href="#" class="link-partner">네이버 D2</a>
+              <a href="#" class="link-partner">네이버 D2SF</a>
+              <a href="#" class="link-partner">네이버 랩스</a>
+            </div>
+          </div>
+          <div class="service-box-wrap">
+            <div class="service-box">
+              <a href="#" class="service-logo">
+                <img
+                  src="data:image/png;base64,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"
+                  alt="웨일 브라우저"
+                  width="48"
+                  height="48"
+                />
+              </a>
+              <div class="service-info">
+                <strong class="title">웨일 브라우저</strong>
+                <a href="#" class="dsc">이용안내</a>
+              </div>
+            </div>
+            <div class="service-box">
+              <a href="#" class="service-logo">
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgBAMAAAAQtmoLAAAAIVBMVEUAAAD///+QkJBhYWFSUlItLS3j4+O8vLxKSkr09PR9fX3vnz0hAAAA0UlEQVRYw+3WsQ7BUBSA4Ru0TWyXuMXEG5BiJhZjxWRr4wV4A4MXMNh5U/RWmPT8c8+/nJykX3K73FxjNE3T6t0ueTcrt6DYkvkfMLZFZ7+1/NapBhkFMQV2QsGNgpgCe6egR4GjwI4o6FPgKLBHCroUDFIIXmeCYEiBTSnI5CD3H8rBwo+LGGz8OIjB0k8nB+Hvz0tAQIF5UBBREFwhMFMKIgpMTsGKggYF3zNJwZaCNgXmRMGegiYFnzPJQUiB4NbwT4ckLdd15dNB0zStDj0B379JDVnibr4AAAAASUVORK5CYII="
+                  alt="기업 사이트"
+                  width="48"
+                  height="48"
+                />
+              </a>
+              <div class="service-info">
+                <strong class="title">기업 사이트</strong>
+                <a href="#" class="dsc">바로가기</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="corp-area">
+          <ul class="list-corp">
+            <li class="corp-item">
+              <a href="#">회사소개</a>
+            </li>
+            <li class="corp-item">
+              <a href="#">인재채용</a>
+            </li>
+            <li class="corp-item">
+              <a href="#">제휴제안</a>
+            </li>
+            <li class="corp-item">
+              <a href="#">이용약관</a>
+            </li>
+            <li class="corp-item">
+              <a href="#">
+                <strong>개인정보처리방침</strong>
+              </a>
+            </li>
+            <li class="corp-item">
+              <a href="#">청소년보호정책</a>
+            </li>
+            <li class="corp-item">
+              <a href="#">네이버 정책</a>
+            </li>
+            <li class="corp-item">
+              <a href="#">고객센터</a>
+            </li>
+          </ul>
+          <address class="addr">
+            <a href="https://www.navercorp.com/">ⓒ NAVER Corp.</a>
+          </address>
+        </section>
+      </div>
+    </footer>
   </body>
 </html>
