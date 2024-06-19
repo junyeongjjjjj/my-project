@@ -1,6 +1,446 @@
 * {
   font: inherit;
   color: inherit;
+  text-decoration: none;
+  border: none;
+  background: none;
+  font-size: 14.7px;
+}
+
+.weather {
+  margin-top: 16px;
+}
+.weather .weather-container {
+  padding: 0 18px;
+}
+.weather .weather-container .weather-header {
+  position: relative;
+  display: flex;
+  padding: 6px 0;
+  line-height: 40px;
+}
+.weather .weather-header .weather-title {
+  color: #080808;
+  display: inline-block;
+  padding-right: 7px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  vertical-align: top;
+}
+.weather .weather-header .weather-compare {
+  border: 1px solid #ebebeb;
+  background-color: #fff;
+  color: #606060;
+  display: inline-block;
+  min-width: 75px;
+  height: 26px;
+  margin-top: 7px;
+  padding: 0 10px 0 7px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  line-height: 25px;
+  vertical-align: top;
+}
+.weather .weather-header .weather-compare::before {
+  content: '';
+  display: inline-block;
+  background-image: url(https://pm.pstatic.net/resources/asset/sp_main.712d35ae.png);
+  background-size: 442px 434px;
+  background-position: -208px -422px;
+  background-repeat: no-repeat;
+  width: 12px;
+  height: 12px;
+  margin: 6px 2px 0 0;
+}
+.weather .weather-header .weather-location {
+  color: #606060;
+  flex: none;
+  margin-left: auto;
+  font-size: 1.3rem;
+}
+.weather .weather-content {
+  border-top: 1px solid #ebebeb;
+  position: relative;
+  display: flex;
+}
+.weather .weather-content [class*='weather-'] {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  margin: 20px 0 18px;
+}
+.weather\ .weather-left {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  margin: 20px 0 18px;
+}
+.weather .weather-left .forecast-link {
+  display: block;
+}
+.weather .forecast-link .forecast-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.weather .forecast-link .forecast-info .forecast-icon {
+  width: 86px;
+  height: 86px;
+  margin-right: 4px;
+}
+.weather .forecast-link .forecast-info .forecast-icon::before {
+  content: '';
+  display: block;
+  background-image: url(https://pm.pstatic.net/resources/asset/sp_weather.11654bc0.png);
+  background-size: 641px 587px;
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  width: 86px;
+  height: 86px;
+}
+.weather .forecast-link .forecast-info .forecast-details {
+  min-width: 0;
+  font-size: 3.9rem;
+  line-height: 48px;
+  letter-spacing: -2px;
+}
+.weather .forecast-link .forecast-info .forecast-details .forecast-condition {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 5px;
+  font-size: 1.4rem;
+  line-height: 20px;
+  font-weight: bold;
+  letter-spacing: -0.3px;
+}
+.weather .forecast-link .temperature-range {
+  margin-top: 16px;
+  line-height: 16px;
+  text-align: center;
+}
+.weather .forecast-link .temperature-range .temp-low {
+  color: #3172e7;
+  font-size: 14.7px;
+}
+.weather .forecast-link .temperature-range .temp-high {
+  color: #cd3534;
+  font-size: 14.7px;
+}
+.weather .forecast-link .temperature-range .temp-high::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 11px;
+  background-color: #d3d5d7;
+  margin: 0 5px 0 3px;
+  transform: skewX(-15deg);
+  vertical-align: -1px;
+}
+.weather .air-quality-link {
+  display: block;
+  margin-top: 6px;
+  line-height: 20px;
+  text-align: center;
+}
+.weather .air-quality-link > span {
+  display: inline-block;
+  font-size: 1.3rem;
+  vertical-align: top;
+}
+.weather .air-quality-link .air-quality .air-quality-level {
+  padding-left: 4px;
+  color: #02c73c;
+}
+
+.weather .air-quality-link .pm25::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  background-color: #d3d5d7;
+  margin: 8px 6px 0;
+  border-radius: 50%;
+  vertical-align: top;
+}
+.weather .air-quality-link .pm25 .pm25-level {
+  padding-left: 4px;
+  color: #fda60e;
+}
+.weather .weather-right {
+  margin-left: 24px !important;
+}
+.weather .weather-right .hourly-link {
+  position: relative;
+  display: block;
+}
+.weather .hourly-link .chart-container {
+  position: absolute;
+  top: 28px;
+  right: 0;
+  left: 0;
+}
+.weather .hourly-link .chart-container canvas {
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  width: 180px;
+  height: 37px;
+}
+.weather ul.hourly-forecast {
+  display: flex;
+  justify-content: space-between;
+  height: 143px;
+}
+.weather ul.hourly-forecast li.hourly-item {
+  position: relative;
+  width: 32px;
+  text-align: center;
+}
+.weather .hourly-forecast li.hourly-item .hour {
+  color: #101010;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #606060;
+  font-size: 1.3rem;
+  line-height: 16px;
+  white-space: nowrap;
+}
+.weather.hourly-forecast li.hourly-item .hourly-status {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  left: 0;
+  width: 32px;
+  height: 32px;
+}
+.weather .hourly-forecast li.hourly-item .hourly-status::before {
+  content: '';
+  display: block;
+  background-image: url(https://pm.pstatic.net/resources/asset/sp_weather.11654bc0.png);
+  background-size: 641px 587px;
+  background-position: 0px -522px;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  margin-top: 95px;
+}
+.weather .hourly-forecast li.hourly-item .hourly-temp {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 60px;
+  left: 0;
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: 7.2px;
+}
+.weather .hourly-forecast li.hourly-item .hourly-temp::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  left: 15px;
+  background-color: #ebebeb;
+  width: 1px;
+}
+
+.sc-stock {
+  margin-top: 16px;
+}
+.sc-stock .stock-wrap {
+  padding: 0 18px;
+}
+.sc-stock .stock-titleBox {
+  position: relative;
+  display: flex;
+  padding: 6px 0;
+  line-height: 40px;
+}
+.sc-stock .stock-titleBox a.stock-title {
+  color: #080808;
+  display: inline-block;
+  padding-right: 7px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  vertical-align: top;
+}
+.sc-stock .stock-titleBox button.stock-more {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  margin: 10px 0 0 -4px;
+}
+.sc-stock .stock-titleBox button.stock-more::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(https://pm.pstatic.net/resources/asset/sp_main.712d35ae.png);
+  background-size: 442px 434px;
+  background-position: -169px -401px;
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 14px;
+  margin: auto;
+}
+.sc-stock .stock-titleBox p.stock-text {
+  position: absolute;
+  top: 45px;
+  left: -2px;
+  width: 312px;
+  display: none;
+}
+.sc-stock p.stock-text button.text-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+.sc-stock div.stock-refresh {
+  color: #606060;
+  flex: none;
+  margin-left: auto;
+  font-size: 1.3rem;
+}
+.sc-stock div.stock-refresh button.refresh-button {
+  display: inline-block;
+  padding: 12px 0 12px 5px;
+  vertical-align: top;
+}
+.sc-stock div.stock-refresh button.refresh-button::before {
+  content: '';
+  display: block;
+  background-image: url(https://pm.pstatic.net/resources/asset/sp_main.712d35ae.png);
+  background-size: 442px 434px;
+  background-position: -325px -307px;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+}
+
+.sc-stock .stock-contentBox {
+  display: flex;
+  border-top: 1px solid #ebebeb;
+  position: relative;
+}
+.sc-stock .stock-contentBox > div {
+  flex: 1;
+}
+.sc-stock .stock-contentBox .contentBox-left {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  margin: 9px 0;
+}
+.sc-stock .stock-contentBox .contentBox-left .left-wrap {
+  overflow: hidden;
+  display: flex;
+  height: 160px;
+}
+.sc-stock .stock-contentBox .contentBox-left .left-wrap a.left-link {
+  display: block;
+  padding-top: 6px;
+  text-decoration: none;
+}
+.sc-stock .left-wrap a.left-link .left-textBox {
+  flex-shrink: 0;
+}
+.sc-stock .left-wrap a.left-link .left-textBox .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sc-stock .left-wrap a.left-link .left-textBox .number {
+  margin-top: 3px;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -0.7px;
+}
+.sc-stock .left-wrap a.left-link .left-textBox .percent {
+  color: #2196f3;
+  position: relative;
+  padding-left: 12px;
+}
+.sc-stock .left-wrap a.left-link .left-textBox .percent i.icon {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  background-image: url(https://pm.pstatic.net/resources/asset/sp_main.712d35ae.png);
+  background-size: 442px 434px;
+  background-position: -143px -422px;
+  background-repeat: no-repeat;
+  width: 12px;
+  height: 12px;
+}
+.sc-stock .left-wrap a.left-link .left-textBox .percent span {
+  padding-left: 6px;
+}
+.sc-stock .left-wrap a.left-link .left-textBox .img-wrap {
+  margin-top: 6px;
+}
+.sc-stock .left-wrap a.left-link .left-textBox .img-wrap img {
+  width: 180px;
+  height: 72px;
+}
+.sc-stock .stock-contentBox .contentBox-right {
+  margin: 9px 0 14px 25px;
+}
+.sc-stock .contentBox-right .right-content {
+  border-block-start: 1px solid #ebebeb;
+  height: 36px;
+}
+.sc-stock .contentBox-right .right-content:first-child {
+  border-block-start: none;
+}
+.sc-stock .contentBox-right .right-content a.right-link {
+  padding: 6px 0 9px;
+  display: flex;
+  justify-content: space-between;
+  line-height: 21px;
+  position: relative;
+}
+.sc-stock .contentBox-right .right-content:last-child a.right-link::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 13px;
+  right: 0;
+  background-image: url(../images/sp_bg.png);
+  background-size: 434px 414px;
+  background-position: -187px -402px;
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 12px;
+  color: #606060;
+}
+.sc-stock .contentBox-right .right-content a.right-link .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 78px;
+}
+.sc-stock .contentBox-right .right-content a.right-link .textBox {
+  line-height: 21px;
+}
+.sc-stock .contentBox-right .right-content a.right-link .textBox .icon {
+  background-image: url(https://pm.pstatic.net/resources/asset/sp_main.712d35ae.png);
+  background-size: 442px 434px;
+  background-position: -169px -422px;
+  background-repeat: no-repeat;
+  width: 12px;
+  height: 12px;
+  margin-top: 4px;
 }
 
 .footer {
@@ -176,10 +616,10 @@ a {
 .footer .service-box + .service-box {
   margin-left: 61px;
 }
-.footer .service-box:first-child .service-logo {
+.footer .service-box .service-logo {
   margin-left: 34px;
 }
-.footer .service-box:last-child .service-logo {
+.footer .service-box .service-logo {
   margin: -1px 0 0 41px;
 }
 .footer .service-box .service-info a.dsc,
